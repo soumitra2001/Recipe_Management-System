@@ -105,4 +105,9 @@ public class UserController {
         return userService.likeRecipe(id);
     }
 
+    @GetMapping("/all")
+    public List<User> getAllUser(){
+        return userService.getAllUser();
+    }
+
 }

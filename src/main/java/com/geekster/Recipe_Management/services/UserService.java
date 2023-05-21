@@ -59,6 +59,8 @@ public class UserService {
 
         user=new User(signUpInput.getUserName(),signUpInput.getUserEmail(),encryptedPassword,signUpInput.getUserPhNo());
 
+        userRepo.save(user);
+
         return new SignUpOutput(HttpStatus.OK,"User account created successfully");
 
     }
@@ -165,4 +167,7 @@ public class UserService {
         return recipeService.likeRecipeById(id);
     }
 
+    public List<User> getAllUser() {
+        return userRepo.findAll();
+    }
 }
