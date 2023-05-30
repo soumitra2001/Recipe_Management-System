@@ -89,7 +89,7 @@ public class UserController {
         return userService.findUserById(id);
     }
 
-    @PostMapping("/recipe/comment/{RecipeName}")
+    @PostMapping("/recipe/comment/{recipeName}")
     public String addComment(@Valid @RequestBody Comment comment, @PathVariable String recipeName, @RequestParam String email, @RequestParam String token){
         return userService.commentOnRecipe(comment,recipeName,email,token);
     }

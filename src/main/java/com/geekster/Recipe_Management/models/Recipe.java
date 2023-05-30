@@ -1,9 +1,10 @@
 package com.geekster.Recipe_Management.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -15,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@JsonIgnoreProperties(value = {"user"},allowSetters = true)
 public class Recipe {
 
     @Id
@@ -45,6 +47,7 @@ public class Recipe {
 
     @ManyToOne
     @JoinColumn(name = "fk_user_id")
+    @JsonBackReference
     private User user;
 
 }

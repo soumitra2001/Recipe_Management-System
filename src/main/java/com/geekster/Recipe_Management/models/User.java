@@ -1,5 +1,6 @@
 package com.geekster.Recipe_Management.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,6 +41,7 @@ public class User {
     private String userPhNo;
 
     @OneToMany(cascade = CascadeType.MERGE,fetch = FetchType.LAZY,mappedBy = "user")
+    @JsonManagedReference
     private List<Recipe> recipes;
 
     public User(String userName, String userEmail, String encryptedPassword, String userPhNo) {
